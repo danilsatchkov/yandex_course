@@ -383,7 +383,7 @@ int main() {
 	AddDocument(search_server, 3, "большой пёс скво\x12рец евгений"s, DocumentStatus::ACTUAL, { 1, 3, 2 });
 	AddDocument(search_server, 4, "большой пёс скворец евгений"s, DocumentStatus::ACTUAL, { 1, 1, 1 });
 
-	FindTopDocuments(search_server, "пушистый -пёс"s);
+	FindTopDocuments(search_server, "пушистый -пёс"s); 
 	FindTopDocuments(search_server, "пушистый --кот"s);
 	FindTopDocuments(search_server, "пушистый -"s);
 
