@@ -123,9 +123,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="error_check.cpp">
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdcpp17</LanguageStandard>
+    </ClCompile>
     <ClCompile Include="Error_handling.cpp">
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdcpp17</LanguageStandard>
     </ClCompile>
+    <ClCompile Include="Hanoi.cpp" />
+    <ClCompile Include="Iteratorscpp.cpp">
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ClCompile Include="iterators_orig.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

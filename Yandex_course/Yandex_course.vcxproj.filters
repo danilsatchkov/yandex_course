@@ -18,5 +18,17 @@
     <ClCompile Include="Error_handling.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Iteratorscpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="iterators_orig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hanoi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="error_check.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
