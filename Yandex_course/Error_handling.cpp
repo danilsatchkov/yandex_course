@@ -1,4 +1,4 @@
-#include <algorithm>
+ï»¿#include <algorithm>
 #include <cmath>
 #include <iostream>
 #include <map>
@@ -40,7 +40,7 @@ std::vector<std::string> SplitIntoWords(const std::string& text)
 			}
 		}
 		else {
-			word += character;
+			word += character; 
 		}
 	}
 	if (!word.empty()) {
@@ -392,13 +392,13 @@ void AddDocument(SearchServer& search_server, int document_id, const std::string
 		search_server.AddDocument(document_id, document, status, ratings);
 	}
 	catch (const std::exception& e) {
-		std::cout << "Îøèáêà äîáàâëåíèÿ äîêóìåíòà " << document_id << ": " << e.what() << std::endl;
+		std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð° " << document_id << ": " << e.what() << std::endl;
 	}
 }
 
 void FindTopDocuments(const SearchServer& search_server, const std::string& raw_query) 
 {
-	std::cout << "Ðåçóëüòàòû ïîèñêà ïî çàïðîñó: " << raw_query << std::endl;
+	std::cout << "Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñ‹ Ð¿Ð¾Ð¸ÑÐºÐ° Ð¿Ð¾ Ð·Ð°Ð¿Ñ€Ð¾ÑÑƒ: " << raw_query << std::endl;
 
 	try {
 		for (const Document& document : search_server.FindTopDocuments(raw_query)) {
@@ -406,14 +406,14 @@ void FindTopDocuments(const SearchServer& search_server, const std::string& raw_
 		}
 	}
 	catch (const std::exception& e) {
-		std::cout << "Îøèáêà ïîèñêà: " << e.what() << std::endl;
+		std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ð¾Ð¸ÑÐºÐ°: " << e.what() << std::endl;
 	}
 }
 
 void MatchDocuments(const SearchServer& search_server, const std::string& query)
 {
 	try {
-		std::cout << "Ìàò÷èíã äîêóìåíòîâ ïî çàïðîñó: " << query << std::endl; 
+		std::cout << "ÐœÐ°Ñ‚Ñ‡Ð¸Ð½Ð³ Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¿Ð¾ Ð·Ð°Ð¿Ñ€Ð¾ÑÑƒ: " << query << std::endl; 
 		const int document_count = search_server.GetDocumentCount();
 		for (int index = 0; index < document_count; ++index) {
 			const int document_id = search_server.GetDocumentId(index);
@@ -423,27 +423,27 @@ void MatchDocuments(const SearchServer& search_server, const std::string& query)
 	}
 	catch (const std::exception& e) 
 	{
-		std::cout << "Îøèáêà ìàò÷èíãà äîêóìåíòîâ íà çàïðîñ " << query << ": " << e.what() << std::endl;
+		std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¼Ð°Ñ‚Ñ‡Ð¸Ð½Ð³Ð° Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð½Ð° Ð·Ð°Ð¿Ñ€Ð¾Ñ " << query << ": " << e.what() << std::endl;
 	}
 }
 
 int main() {
-	std::string initial_stopwords = "è â íà";
+	std::string initial_stopwords = "Ð¸ Ð² Ð½Ð°";
 	SearchServer search_server(initial_stopwords);
 
-	AddDocument(search_server, 1, "ïóøèñòûé êîò ïóøèñòûé õâîñò", DocumentStatus::ACTUAL, { 7, 2, 7 });
-	AddDocument(search_server, 1, "ïóøèñòûé ï¸ñ è ìîäíûé îøåéíèê", DocumentStatus::ACTUAL, { 1, 2 });
-	AddDocument(search_server, -1, "ïóøèñòûé ï¸ñ è ìîäíûé îøåéíèê", DocumentStatus::ACTUAL, { 1, 2 });
-	AddDocument(search_server, 3, "áîëüøîé ï¸ñ ñêâî\x12ðåö åâãåíèé", DocumentStatus::ACTUAL, { 1, 3, 2 });
-	AddDocument(search_server, 4, "áîëüøîé ï¸ñ ñêâîðåö åâãåíèé", DocumentStatus::ACTUAL, { 1, 1, 1 });
+	AddDocument(search_server, 1, "Ð¿ÑƒÑˆÐ¸ÑÑ‚Ñ‹Ð¹ ÐºÐ¾Ñ‚ Ð¿ÑƒÑˆÐ¸ÑÑ‚Ñ‹Ð¹ Ñ…Ð²Ð¾ÑÑ‚", DocumentStatus::ACTUAL, { 7, 2, 7 });
+	AddDocument(search_server, 1, "Ð¿ÑƒÑˆÐ¸ÑÑ‚Ñ‹Ð¹ Ð¿Ñ‘Ñ Ð¸ Ð¼Ð¾Ð´Ð½Ñ‹Ð¹ Ð¾ÑˆÐµÐ¹Ð½Ð¸Ðº", DocumentStatus::ACTUAL, { 1, 2 });
+	AddDocument(search_server, -1, "Ð¿ÑƒÑˆÐ¸ÑÑ‚Ñ‹Ð¹ Ð¿Ñ‘Ñ Ð¸ Ð¼Ð¾Ð´Ð½Ñ‹Ð¹ Ð¾ÑˆÐµÐ¹Ð½Ð¸Ðº", DocumentStatus::ACTUAL, { 1, 2 });
+	AddDocument(search_server, 3, "Ð±Ð¾Ð»ÑŒÑˆÐ¾Ð¹ Ð¿Ñ‘Ñ ÑÐºÐ²Ð¾\x12Ñ€ÐµÑ† ÐµÐ²Ð³ÐµÐ½Ð¸Ð¹", DocumentStatus::ACTUAL, { 1, 3, 2 });
+	AddDocument(search_server, 4, "Ð±Ð¾Ð»ÑŒÑˆÐ¾Ð¹ Ð¿Ñ‘Ñ ÑÐºÐ²Ð¾Ñ€ÐµÑ† ÐµÐ²Ð³ÐµÐ½Ð¸Ð¹", DocumentStatus::ACTUAL, { 1, 1, 1 });
 
-	FindTopDocuments(search_server, "ïóøèñòûé -ï¸ñ"); 
-	FindTopDocuments(search_server, "ïóøèñòûé --êîò");
-	FindTopDocuments(search_server, "ïóøèñòûé -");
+	FindTopDocuments(search_server, "Ð¿ÑƒÑˆÐ¸ÑÑ‚Ñ‹Ð¹ -Ð¿Ñ‘Ñ"); 
+	FindTopDocuments(search_server, "Ð¿ÑƒÑˆÐ¸ÑÑ‚Ñ‹Ð¹ --ÐºÐ¾Ñ‚");
+	FindTopDocuments(search_server, "Ð¿ÑƒÑˆÐ¸ÑÑ‚Ñ‹Ð¹ -");
 
-	MatchDocuments(search_server, "ïóøèñòûé ï¸ñ");
-	MatchDocuments(search_server, "ìîäíûé -êîò");
-	MatchDocuments(search_server, "ìîäíûé --ï¸ñ");
-	MatchDocuments(search_server, "ïóøèñòûé - õâîñò");
+	MatchDocuments(search_server, "Ð¿ÑƒÑˆÐ¸ÑÑ‚Ñ‹Ð¹ Ð¿Ñ‘Ñ");
+	MatchDocuments(search_server, "Ð¼Ð¾Ð´Ð½Ñ‹Ð¹ -ÐºÐ¾Ñ‚");
+	MatchDocuments(search_server, "Ð¼Ð¾Ð´Ð½Ñ‹Ð¹ --Ð¿Ñ‘Ñ");
+	MatchDocuments(search_server, "Ð¿ÑƒÑˆÐ¸ÑÑ‚Ñ‹Ð¹ - Ñ…Ð²Ð¾ÑÑ‚");
 }
 
