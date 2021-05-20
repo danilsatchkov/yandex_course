@@ -400,7 +400,7 @@ void FindTopDocuments(const SearchServer& search_server, const std::string& raw_
 	std::cout << "Результаты поиска по запросу: " << raw_query << std::endl;
 
 	try {
-		for (const Document& document : search_server.FindTopDocuments(raw_query)) {
+		for (const Document& document : search_server.FindTopDocuments(raw_query)) { 
 			PrintDocument(document);
 		}
 	}
