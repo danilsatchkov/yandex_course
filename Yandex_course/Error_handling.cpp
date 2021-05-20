@@ -203,7 +203,7 @@ public:
 		return make_tuple(matched_words, documents_.at(document_id).status);
 	}
 
-	int GetDocumentId(int index) const 
+	int GetDocumentId(int index) const  
 	{
 		auto found_id = document_id_.at(index);
 
