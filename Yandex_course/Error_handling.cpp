@@ -256,7 +256,6 @@ private:
 		std::string data;
 		bool is_minus=false;
 		bool is_stop=false;
-
 	};
 
 	QueryWord ParseQueryWord(std::string text) const
