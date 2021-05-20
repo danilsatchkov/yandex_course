@@ -98,9 +98,9 @@ public:
     explicit SearchServer(const StringContainer& stop_words)
         : stop_words_(MakeUniqueNonEmptyStrings(stop_words))
     {
-        for (const auto& stopword : stop_words) {
+        for (const auto& stopword : stop_words) { 
             if (!IsValidWord(stopword)) throw std::invalid_argument("stop words contain forbidden symbols");
-    
+
         }
     }
 
