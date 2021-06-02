@@ -66,7 +66,7 @@ std::set<std::string> MakeUniqueNonEmptyStrings(const StringContainer& strings) 
 
     for (const std::string& str : strings) {
         if (!str.empty()) {
-            non_empty_strings.insert(str);
+            non_empty_strings.insert(str); 
         }
     }
 
