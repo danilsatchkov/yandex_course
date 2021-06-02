@@ -142,7 +142,8 @@ public:
 
         if (matched_documents.size() > kMaxResultDocumentCount ) {
             matched_documents.resize(kMaxResultDocumentCount );
-        }
+        } 
+        
         return matched_documents;
     }
     
@@ -190,7 +191,6 @@ public:
     }
 
     int GetDocumentId(int index) const {
-
         return document_id_.at(index);
     }
 
@@ -217,7 +217,6 @@ private:
 
     private:
     bool IsStopWord(const std::string& word) const {
-
         return stop_words_.count(word) > 0;
     }
 
@@ -334,6 +333,7 @@ private:
         for (const auto[document_id, relevance] : document_to_relevance) {
             matched_documents.push_back({ document_id, relevance, documents_.at(document_id).rating });
         }
+        
         return matched_documents;
     }
 
